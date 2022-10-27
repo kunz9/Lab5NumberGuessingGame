@@ -14,21 +14,22 @@ random numbers to choose among them.
 */
 
 #include <iostream>
+#include <time.h>
+#include <cstdlib>
 using namespace std;
 //Precondition:Library Iostream
 //Postcondition: Outputs the heading of the game
 void heading();
 
-//Precondition:Library iostream, needs functions; wrong, correct, and newgame
-// needs stored values in tries, num, playagain, wins, and losses
-//Postcondition: Out puts entire game, attains stored value for guess
+//Precondition:Library iostream, time.h, and cstdlib
+//Postcondition: Out puts entire game
 void game(int tries, int num, int guess, int playagain, int wins, int losses);
 
-//Precondition:Library iostream
+//Precondition:Library iostream amd cstdlib
 //Postcondition: outsuts different wrong statments randomly
 void wrong();
 
-//Precondition:Library iostream
+//Precondition:Library iostream and cstdlib
 //Postcondition: outputs different right statements randomly
 void correct();
 
@@ -37,16 +38,16 @@ void correct();
 void newgame(int& playagain, int tries);
 
 int main()
-{//initalizes most variable 
-	int playagain = 0; int y = 0; int x = 0; int tries = 0; int num = 0; int guess = 0; int wins = 0;
-		int losses = 0;
+{//initalizes most variables 
+	int playagain = 0; int y = 0; int x = 0; int tries = 0; int num = 0; int guess = 0; int wins = 0; int losses = 0;
 	heading();
 	game(tries, num, guess,playagain, wins,losses);
 	return 0;
 }
 void heading()
 {
-	cout << "Welcome to the Random Number Guessing Game! You will have 20 guesses!"<<endl<<endl;
+	cout << "Welcome to the Random Number Guessing Game! You will have 20 guesses!"<<endl;
+	cout << "Please enter one guess at a time.\n";
 }
 void game(int tries, int num, int guess, int playagain, int wins, int losses) 
 {
@@ -71,6 +72,7 @@ void game(int tries, int num, int guess, int playagain, int wins, int losses)
 					newgame(playagain, tries);
 					if (playagain == 1)
 					{
+						num = rand() % 100 + 1;
 						tries = 0;
 						continue;
 					}
@@ -82,6 +84,7 @@ void game(int tries, int num, int guess, int playagain, int wins, int losses)
 					newgame(playagain, tries);
 					if (playagain == 1)
 					{
+						num = rand() % 100 + 1;
 						tries = 0;
 						continue;
 					}
