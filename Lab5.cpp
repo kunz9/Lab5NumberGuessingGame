@@ -68,7 +68,6 @@ void game(int tries, int num, int guess, int playagain, int wins, int losses)
 				if (tries == 20)
 				{
 					losses++;//adds losses to end count
-					cout << "You Lost\n";
 					newgame(playagain, tries);
 					if (playagain == 1)
 					{
@@ -80,7 +79,6 @@ void game(int tries, int num, int guess, int playagain, int wins, int losses)
 				if (guess == num)
 				{
 					wins++;//adds wins to end count
-					cout << " You Won!";
 					newgame(playagain, tries);
 					if (playagain == 1)
 					{
